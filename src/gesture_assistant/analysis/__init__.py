@@ -1,0 +1,1 @@
+"""Przyszła analiza techniki ćwiczeń."""
