@@ -1,0 +1,1911 @@
+GESTUREASSISTANT — EKSPORT KODU PROJEKTU
+Data eksportu: 2026-11-12 14:16:12
+Liczba plików: 47
+
+========== LISTA PLIKÓW ==========
+.gitignore
+.idea\.gitignore
+.idea\inspectionProfiles\profiles_settings.xml
+.idea\inspectionProfiles\Project_Default.xml
+.idea\misc.xml
+.idea\modules.xml
+.idea\vcs.xml
+.idea\workspace.xml
+docs\ARCHITECTURE.md
+docs\HANDOFF.md
+docs\PRIVACY.md
+docs\VERIFICATION.md
+main.py
+pyproject.toml
+README.md
+requirements.txt
+scripts\download_model.py
+src\__init__.py
+src\gesture_assistant\__init__.py
+src\gesture_assistant\analysis\__init__.py
+src\gesture_assistant\analysis\placeholders.py
+src\gesture_assistant\app\__init__.py
+src\gesture_assistant\app\app_state.py
+src\gesture_assistant\app\application.py
+src\gesture_assistant\domain\__init__.py
+src\gesture_assistant\domain\enums.py
+src\gesture_assistant\domain\models.py
+src\gesture_assistant\storage\__init__.py
+src\gesture_assistant\storage\placeholders.py
+src\gesture_assistant\ui\__init__.py
+src\gesture_assistant\ui\camera_view.py
+src\gesture_assistant\ui\main_window.py
+src\gesture_assistant\ui\theme.py
+src\gesture_assistant\utils\__init__.py
+src\gesture_assistant\utils\time_utils.py
+src\gesture_assistant\vision\__init__.py
+src\gesture_assistant\vision\camera_worker.py
+src\gesture_assistant\vision\hand_provider.py
+src\gesture_assistant\vision\pose_engine.py
+src\gesture_assistant\vision\pose_provider.py
+src\gesture_assistant\vision\quality.py
+tests\__init__.py
+tests\conftest.py
+tests\test_app_state.py
+tests\test_camera_worker.py
+tests\test_hand_provider.py
+tests\test_pose_provider.py
+========== KONIEC LISTY PLIKÓW ==========
+
+========== PLIK: .gitignore ==========
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+*.db
+*.sqlite
+models/
+logs/
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: .idea\.gitignore ==========
+# Default ignored files
+/shelf/
+/workspace.xml
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: .idea\inspectionProfiles\profiles_settings.xml ==========
+<component name="InspectionProjectProfileManager">
+  <settings>
+    <option name="USE_PROJECT_PROFILE" value="false" />
+    <version value="1.0" />
+  </settings>
+</component>
+========== KONIEC PLIKU ==========
+
+========== PLIK: .idea\inspectionProfiles\Project_Default.xml ==========
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="flask" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
+========== KONIEC PLIKU ==========
+
+========== PLIK: .idea\misc.xml ==========
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Black">
+    <option name="sdkName" value="Python 3.12 (GestureAssistant)" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (GestureAssistant)" project-jdk-type="Python SDK" />
+</project>
+========== KONIEC PLIKU ==========
+
+========== PLIK: .idea\modules.xml ==========
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/GestureAssistant.iml" filepath="$PROJECT_DIR$/.idea/GestureAssistant.iml" />
+    </modules>
+  </component>
+</project>
+========== KONIEC PLIKU ==========
+
+========== PLIK: .idea\vcs.xml ==========
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+  </component>
+</project>
+========== KONIEC PLIKU ==========
+
+========== PLIK: .idea\workspace.xml ==========
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="92f130b5-7476-4602-afd3-22a61d5679b9" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="3M0NQcMjoVmjQ24OwvgtPjCrN92" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Damian/Desktop/ML_projekt/GestureAssistant"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="GestureAssistant" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-975db3bf15a3-31b6be0877a2-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.18034.82" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="92f130b5-7476-4602-afd3-22a61d5679b9" name="Changes" comment="" />
+      <created>1794483509432</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1794483509432</updated>
+    </task>
+    <servers />
+  </component>
+</project>
+========== KONIEC PLIKU ==========
+
+========== PLIK: docs\ARCHITECTURE.md ==========
+# Architektura GestureAssistant — aktualizacja dłoni
+
+Kamera (numer całkowity >= 0) -> wątek odczytu -> bufor wejściowy 1 klatki
+-> CameraWorker/QThread -> MediaPipeHandProvider -> HandResult
+-> bufor wyjściowy 1 pary (obraz, wynik) -> QTimer GUI -> CameraView.
+
+Brak wejścia plikowego. Konstruktor workera odrzuca str, bool i ujemne numery.
+GUI nie podłącza sygnałów przenoszących każdy obraz: pobiera najnowszy pakiet co 33 ms.
+Sygnały frame_ready/result_ready pozostają do testów i integracji; podłączenie ich
+przez zewnętrzny kod do powolnego odbiorcy wymaga własnego backpressure.
+Obraz i szkielet w GUI pochodzą z tej samej klatki.
+
+HandPoint: x/y znormalizowane względem obrazu, z względna głębokość.
+Hand: 21 punktów lokalnych, 21 world_landmarks, handedness i jej score.
+World landmarks są w metrach, nie w znormalizowanych współrzędnych obrazu.
+HandResult: frame_id, timestamp_ms, tuple dłoni; brak dłoni to pusta tuple.
+Nie używamy wskaźników widoczności sylwetki do odrzucania dłoni.
+
+Model powstaje leniwie w process(), w wątku analizy. Worker zamyka provider po analizie.
+Kamera jest otwierana, odczytywana i zwalniana w jednym wątku odczytu.
+Stop zleca zatrzymanie; zamknięcie okna czeka asynchronicznie na QThread.finished.
+Nie ma terminate(). Bufory wejścia i podglądu są ograniczone.
+Stare PoseFrame/PoseProvider/quality są zachowane, ale nieużywane w nowej ścieżce GUI.
+Wszystkie importy projektu używają src.gesture_assistant.
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: docs\HANDOFF.md ==========
+# Handoff — aktualizacja dłoni i kamery
+
+## Zmienione
+
+- Osobny provider dłoni, do dwóch dłoni; bez wymogu sylwetki.
+- GUI wyłącznie kamera, brak ścieżki pliku i dialogów wideo.
+- Kamera wymaga nieujemnego int; test pliku zastąpiono testem odrzucania źródła.
+- Zachowane poprzednie testy modeli, jakości Pose i stanu; Pose nie jest aktywną detekcją.
+- Input buffer i GUI mailbox mają pojemność 1. Overlay odpowiada aktualnemu obrazowi.
+- Model tworzony w workerze, zamykany w finally; GUI reaguje na finished.
+- Poprawiona ścieżka modelu (rodzic projektu, nie katalog src).
+
+## Model
+
+Uruchom ręcznie: `python scripts/download_model.py`.
+Plik: models/hand_landmarker.task.
+URL: https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/latest/hand_landmarker.task
+Brak modelu daje czytelny komunikat. Nie ma pobierania przy każdym starcie GUI.
+
+## Nadal do wykonania
+
+- Manualna weryfikacja Windows/kamera/MediaPipe.
+- Rozpoznawanie gestów i ewentualne pomocnicze punkty łokcia/barku.
+  Hand Landmarker nie zapewnia tych punktów.
+- Rozwiązanie blokady natywnego read() sterownika (np. izolacja kamery w procesie).
+- Stary test trzech klatek używa opóźnienia 20 ms i może być zależny od planisty;
+  docelowo zastąpić synchronizowaną atrapą zamiast zwiększania opóźnień.
+- Brak medycznej interpretacji wyników i brak pełnej analizy ćwiczeń.
+
+Wyniki wykonanych sprawdzeń są zapisane w docs/VERIFICATION.md.
+Nie deklarujemy pełnej sprawności bez testów użytkownika na sprzęcie.
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: docs\PRIVACY.md ==========
+# Prywatność
+
+Obraz jest przetwarzany lokalnie. Aplikacja nie nagrywa, nie zapisuje zdjęć ani nie wysyła
+klatek do internetu. Kamera uruchamia się dopiero po Start. Stop zleca zwolnienie zasobów.
+Zawieszony sterownik może opóźnić zakończenie odczytu.
+Tylko ręcznie uruchomiony scripts/download_model.py łączy się z serwerem modelu;
+nie przesyła obrazów ani wyników analizy.
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: docs\VERIFICATION.md ==========
+# Rzeczywista weryfikacja aktualizacji
+
+Środowisko: Linux, Python 3.12.8.
+Utworzono lokalny venv przez python -m venv --system-site-packages work/check_venv.
+Nie instalowano nic globalnie ani nie pobierano modelu.
+W venv udostępniono już zainstalowane biblioteki środowiska przez system-site-packages.
+
+1. Odtworzono 36 plików z dostarczonego GestureAssistant_kod.txt.
+2. Sprawdzono składnię 32 plików Python przez ast.parse: bez błędów.
+3. Uruchomiono izolowaną kopię tests/test_hand_provider.py poza katalogiem fixtures Qt:
+   python -m pytest -v --confcutdir <katalog_izolowany> <test_hand_provider.py>.
+   Wynik: 8 passed in 0.14s. Żadnych testów nie pominięto w tym izolowanym module.
+4. Pełne python -m pytest -v: kod 4, ModuleNotFoundError: No module named 'PySide6'.
+5. python -m ruff check .: kod 1, No module named ruff.
+
+Nie uruchomiono GUI, rzeczywistego modelu MediaPipe ani kamery. Brak Windows i GPU.
+8 testów nie potwierdza działania MediaPipe ani wątków Qt; sprawdza tylko kontrakty,
+brak pliku modelu oraz walidację obrazów i timestampów.
+Pełne testy oraz lint wymagają uruchomienia w istniejącym venv użytkownika.
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: main.py ==========
+from src.gesture_assistant.app.application import main
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: pyproject.toml ==========
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gesture_assistant"
+version = "0.1.0"
+description = "Desktopowa aplikacja Windows do analizy widocznych cech dłoni z kamery."
+requires-python = ">=3.10"
+dependencies = [
+    "PySide6",
+    "opencv-python",
+    "mediapipe",
+    "numpy",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src", "src.gesture_assistant*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: README.md ==========
+# GestureAssistant
+
+Lokalny podgląd kamery i śledzenie do dwóch dłoni. Nie trzeba pokazywać całej osoby.
+Model Hand Landmarker wykrywa 21 punktów każdej dłoni, w tym nadgarstek i palce.
+Nie wykrywa barku ani łokcia; pełna analiza ramienia nie jest w tej aktualizacji gotowa.
+Nie ma rozpoznawania gestów, sterowania systemem ani oceny medycznej.
+
+## Środowisko
+
+Użytkownik potwierdził wcześniejsze testy na Windows, Python 3.12.4.
+Aktualizację przygotowano na Linux, Python 3.12.8; brak fizycznej kamery i Windows.
+Nie przypinamy niezweryfikowanych wersji pakietów.
+
+```powershell
+python -m venv .venv
+.venv\Scripts\python.exe -m pip install -r requirements.txt
+.venv\Scripts\python.exe scripts/download_model.py
+.venv\Scripts\python.exe main.py
+```
+
+W już aktywnym środowisku wystarczy `python scripts/download_model.py`, potem `python main.py`.
+Wybierz numer kamery i Start. Stop zwalnia kamerę i model. Brak odczytu plików wideo.
+Model jest lokalny: `models/hand_landmarker.task`.
+Stary model `pose_landmarker_lite.task` nie jest zamiennikiem modelu dłoni.
+Skrypt pobierania jest opcjonalny, ma timeout; GUI nie pobiera nic automatycznie.
+
+## Weryfikacja
+
+```powershell
+python -m pytest -v
+python -m ruff format .
+python -m ruff check .
+```
+
+## Ograniczenia
+
+Śledzenie może zanikać przy zasłonięciu palców i słabym świetle.
+Brak detekcji nie pozwala rozstrzygnąć, czy dłoń jest zasłonięta, poza kadrem czy nieobecna.
+Nie fabrykujemy visibility/presence dla dłoni; wynik handedness to pewność klasyfikacji
+lewa/prawa, a nie widoczność punktów.
+VIDEO w API MediaPipe oznacza tutaj synchroniczną analizę kolejnych klatek kamery,
+nie możliwość otwarcia pliku w aplikacji.
+Zablokowany natywny odczyt sterownika kamery może opóźnić Stop. Nie zabijamy wątku siłowo.
+Starsze moduły Pose i ich testy pozostają jako nieaktywna warstwa zgodności.
+Importy mają postać `from src.gesture_assistant...`; uruchamiaj polecenia z katalogu projektu.
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: requirements.txt ==========
+PySide6
+opencv-python
+mediapipe
+numpy
+pytest
+ruff
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: scripts\download_model.py ==========
+import argparse
+import sys
+import urllib.error
+import urllib.request
+from pathlib import Path
+
+DEFAULT_URL = (
+    "https://storage.googleapis.com/mediapipe-models/hand_landmarker/"
+    "hand_landmarker/float16/latest/hand_landmarker.task"
+)
+DEFAULT_OUTPUT = Path(__file__).resolve().parents[1] / "models" / "hand_landmarker.task"
+CHUNK_SIZE = 1024 * 1024
+
+
+def download_model(url: str, output: Path, timeout: int) -> None:
+    output.parent.mkdir(parents=True, exist_ok=True)
+    temporary_path = output.with_suffix(output.suffix + ".part")
+
+    try:
+        with (
+            urllib.request.urlopen(url, timeout=timeout) as response,
+            temporary_path.open("wb") as target,
+        ):
+            while True:
+                chunk = response.read(CHUNK_SIZE)
+                if not chunk:
+                    break
+                target.write(chunk)
+        temporary_path.replace(output)
+    except (urllib.error.URLError, TimeoutError, OSError) as exc:
+        if temporary_path.exists():
+            temporary_path.unlink()
+        print(f"Nie udało się pobrać modelu: {exc}", file=sys.stderr)
+        raise SystemExit(1) from exc
+
+    print(f"Model zapisano w: {output}")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Pobiera model MediaPipe Hand Landmarker.")
+    parser.add_argument("--url", default=DEFAULT_URL, help="Adres URL modelu.")
+    parser.add_argument(
+        "--output", type=Path, default=DEFAULT_OUTPUT, help="Ścieżka docelowa modelu."
+    )
+    parser.add_argument("--timeout", type=int, default=60, help="Timeout połączenia w sekundach.")
+    arguments = parser.parse_args()
+
+    download_model(arguments.url, arguments.output, arguments.timeout)
+
+
+if __name__ == "__main__":
+    main()
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\__init__.py ==========
+"""Przestrzeń pakietów projektu dla importów src.gesture_assistant."""
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\__init__.py ==========
+"""GestureAssistant — lokalna analiza widocznych cech techniki ćwiczeń."""
+
+__version__ = "0.1.0"
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\analysis\__init__.py ==========
+"""Przyszła analiza techniki ćwiczeń."""
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\analysis\placeholders.py ==========
+"""Miejsce na przyszłą analizę techniki ćwiczeń.
+
+Implementacja analizy ruchu, faz ćwiczenia i licznika powtórzeń będzie dodana
+w kolejnym etapie. Ten moduł nie wykonuje jeszcze żadnej analizy.
+"""
+
+from src.gesture_assistant.domain.enums import ExerciseType
+
+SUPPORTED_EXERCISES: tuple[ExerciseType, ...] = (
+    ExerciseType.SQUAT,
+    ExerciseType.PUSHUP,
+    ExerciseType.PLANK,
+)
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\app\__init__.py ==========
+"""Uruchomienie aplikacji i wspólny stan programu."""
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\app\app_state.py ==========
+from PySide6.QtCore import QObject, Signal
+
+from src.gesture_assistant.domain.enums import SessionState
+
+
+class AppState(QObject):
+    state_changed = Signal(object)
+    status_message_changed = Signal(str)
+    error_occurred = Signal(str)
+
+    def __init__(self, parent=None) -> None:
+        super().__init__(parent)
+        self._state = SessionState.IDLE
+        self._status_message = "Gotowy"
+        self._error_message = ""
+
+    @property
+    def state(self) -> SessionState:
+        return self._state
+
+    @property
+    def status_message(self) -> str:
+        return self._status_message
+
+    @property
+    def error_message(self) -> str:
+        return self._error_message
+
+    def set_state(self, state: SessionState) -> None:
+        if state == self._state:
+            return
+        self._state = state
+        self.state_changed.emit(state)
+
+    def set_status_message(self, message: str) -> None:
+        if message == self._status_message:
+            return
+        self._status_message = message
+        self.status_message_changed.emit(message)
+
+    def set_error_message(self, message: str) -> None:
+        if message == self._error_message:
+            return
+        self._error_message = message
+        self.error_occurred.emit(message)
+
+    def clear_error_message(self) -> None:
+        self.set_error_message("")
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\app\application.py ==========
+import sys
+
+from PySide6.QtWidgets import QApplication
+
+from src.gesture_assistant.ui.main_window import MainWindow
+
+
+def main() -> int:
+    application = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    return application.exec()
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\domain\__init__.py ==========
+"""Modele domenowe i kontrakty danych GestureAssistant."""
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\domain\enums.py ==========
+from enum import Enum, auto
+
+
+class TrackingStatus(Enum):
+    NO_PERSON = auto()
+    TRACKING = auto()
+    LOST = auto()
+
+
+class QualityStatus(Enum):
+    VALID = auto()
+    NO_PERSON = auto()
+    LOW_VISIBILITY = auto()
+    OUT_OF_FRAME = auto()
+    MULTIPLE_PEOPLE = auto()
+    WRONG_VIEW = auto()
+    CAMERA_ERROR = auto()
+
+
+class ExerciseType(Enum):
+    SQUAT = auto()
+    PUSHUP = auto()
+    PLANK = auto()
+
+
+class SessionState(Enum):
+    IDLE = auto()
+    CALIBRATING = auto()
+    READY = auto()
+    RUNNING = auto()
+    PAUSED = auto()
+    FINISHED = auto()
+    ERROR = auto()
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\domain\models.py ==========
+from dataclasses import dataclass
+
+from src.gesture_assistant.domain.enums import QualityStatus, TrackingStatus
+
+
+@dataclass(frozen=True)
+class Landmark:
+    x: float
+    y: float
+    z: float
+    visibility: float
+    presence: float | None = None
+
+
+@dataclass(frozen=True)
+class PoseFrame:
+    frame_id: int
+    timestamp_ms: int
+    image_width: int
+    image_height: int
+    landmarks: list[Landmark] | None
+    world_landmarks: list[Landmark] | None
+    tracking_status: TrackingStatus
+
+
+@dataclass(frozen=True)
+class PoseResult:
+    frame: PoseFrame
+    quality: QualityStatus
+    message: str | None = None
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\storage\__init__.py ==========
+"""Przyszły zapis sesji i wyników analizy."""
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\storage\placeholders.py ==========
+"""Miejsce na przyszły zapis sesji.
+
+Warstwa pamięci nie jest jeszcze zaimplementowana. Docelowo będzie przechowywać
+wyłącznie dane sesji i wyniki analizy, bez wysyłania danych do usług zewnętrznych.
+"""
+
+DATABASE_FILE_EXTENSIONS: tuple[str, ...] = (".db", ".sqlite")
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\ui\__init__.py ==========
+"""Interfejs graficzny GestureAssistant."""
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\ui\camera_view.py ==========
+import cv2
+import numpy as np
+from PySide6.QtCore import QPoint, QRect, Qt
+from PySide6.QtGui import QColor, QImage, QPainter, QPen
+from PySide6.QtWidgets import QWidget
+
+from src.gesture_assistant.ui.theme import NO_PREVIEW_TEXT
+from src.gesture_assistant.vision.hand_provider import Hand, HandPoint
+
+HAND_CONNECTIONS = (
+    (0, 1),
+    (1, 2),
+    (2, 3),
+    (3, 4),
+    (0, 5),
+    (5, 6),
+    (6, 7),
+    (7, 8),
+    (5, 9),
+    (9, 10),
+    (10, 11),
+    (11, 12),
+    (9, 13),
+    (13, 14),
+    (14, 15),
+    (15, 16),
+    (13, 17),
+    (0, 17),
+    (17, 18),
+    (18, 19),
+    (19, 20),
+)
+
+
+class CameraView(QWidget):
+    """Podgląd obrazu z zachowaniem proporcji oraz rysowanie szkieletu."""
+
+    def __init__(self, parent=None) -> None:
+        super().__init__(parent)
+        self.setMinimumSize(640, 360)
+        self._image: QImage | None = None
+        self._hands: tuple[Hand, ...] = ()
+
+    def set_frame(self, frame_bgr: np.ndarray, hands: tuple[Hand, ...]) -> None:
+        rgb = cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2RGB)
+        height, width, channels = rgb.shape
+        self._image = QImage(
+            rgb.data,
+            width,
+            height,
+            channels * width,
+            QImage.Format.Format_RGB888,
+        ).copy()
+        self._hands = hands
+        self.update()
+
+    def clear(self) -> None:
+        self._image = None
+        self._hands = ()
+        self.update()
+
+    def paintEvent(self, event) -> None:
+        painter = QPainter(self)
+        painter.fillRect(self.rect(), QColor("#101418"))
+
+        if self._image is None:
+            painter.setPen(QPen(QColor("#8a939c")))
+            painter.drawText(self.rect(), Qt.AlignmentFlag.AlignCenter, NO_PREVIEW_TEXT)
+            return
+
+        target = self._scaled_target_rect(self._image.size())
+        painter.drawImage(target, self._image)
+
+        painter.save()
+        painter.setClipRect(target)
+        for hand in self._hands:
+            self._draw_skeleton(painter, target, hand)
+        painter.restore()
+
+    def _scaled_target_rect(self, image_size) -> QRect:
+        widget_width = self.width()
+        widget_height = self.height()
+        image_width = image_size.width()
+        image_height = image_size.height()
+
+        scale = min(widget_width / image_width, widget_height / image_height)
+        target_width = int(image_width * scale)
+        target_height = int(image_height * scale)
+        x = (widget_width - target_width) // 2
+        y = (widget_height - target_height) // 2
+
+        return QRect(x, y, target_width, target_height)
+
+    def _draw_skeleton(self, painter: QPainter, target: QRect, hand: Hand) -> None:
+        landmarks = hand.landmarks
+
+        painter.setPen(QPen(QColor("#4c8dff"), 3))
+
+        for first_index, second_index in HAND_CONNECTIONS:
+            if first_index >= len(landmarks) or second_index >= len(landmarks):
+                continue
+
+            first = self._map_landmark(landmarks[first_index], target)
+            second = self._map_landmark(landmarks[second_index], target)
+            painter.drawLine(first, second)
+
+        painter.setPen(QPen(QColor("#ff6b6b"), 1))
+        painter.setBrush(QColor("#ff6b6b"))
+
+        for landmark in landmarks:
+            point = self._map_landmark(landmark, target)
+            painter.drawEllipse(point, 3, 3)
+
+    def _map_landmark(self, landmark: HandPoint, target: QRect) -> QPoint:
+        x = target.x() + int(landmark.x * target.width())
+        y = target.y() + int(landmark.y * target.height())
+        return QPoint(x, y)
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\ui\main_window.py ==========
+from pathlib import Path
+
+from PySide6.QtCore import QTimer
+from PySide6.QtWidgets import (
+    QHBoxLayout,
+    QLabel,
+    QMainWindow,
+    QPushButton,
+    QSpinBox,
+    QVBoxLayout,
+    QWidget,
+)
+
+from src.gesture_assistant.ui.camera_view import CameraView
+from src.gesture_assistant.ui.theme import get_stylesheet
+from src.gesture_assistant.vision.camera_worker import CameraWorker
+from src.gesture_assistant.vision.hand_provider import MediaPipeHandProvider
+
+
+def default_model_path() -> Path:
+    return Path(__file__).resolve().parents[3] / "models" / "hand_landmarker.task"
+
+
+class MainWindow(QMainWindow):
+    """Kamera i dłonie; brak wymagania widoczności całej osoby."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.setWindowTitle("GestureAssistant")
+        self.setStyleSheet(get_stylesheet())
+        self.resize(1024, 680)
+        self._worker = None
+        self._closing = False
+        self._failed = False
+        self._camera_index = QSpinBox()
+        self._camera_index.setRange(0, 32)
+        self._start_button = QPushButton("Start")
+        self._stop_button = QPushButton("Stop")
+        self._stop_button.setEnabled(False)
+        self._camera_view = CameraView()
+        self._status_label = QLabel("Gotowy — wystarczy widoczna dłoń.")
+        self._error_label = QLabel()
+        self._error_label.setWordWrap(True)
+        self._error_label.setStyleSheet("color: #ff6b6b;")
+
+        controls = QHBoxLayout()
+        controls.addWidget(QLabel("Numer kamery:"))
+        controls.addWidget(self._camera_index)
+        controls.addStretch()
+        controls.addWidget(self._start_button)
+        controls.addWidget(self._stop_button)
+        layout = QVBoxLayout()
+        layout.addLayout(controls)
+        layout.addWidget(self._camera_view, 1)
+        layout.addWidget(self._status_label)
+        layout.addWidget(self._error_label)
+        central = QWidget()
+        central.setLayout(layout)
+        self.setCentralWidget(central)
+        self._start_button.clicked.connect(self._start_analysis)
+        self._stop_button.clicked.connect(self._stop_analysis)
+        self._timer = QTimer(self)
+        self._timer.setInterval(33)
+        self._timer.timeout.connect(self._refresh_preview)
+
+    def _start_analysis(self) -> None:
+        if self._worker is not None:
+            return
+        try:
+            provider = MediaPipeHandProvider(default_model_path())
+        except (OSError, ValueError) as exc:
+            self._error_label.setText(str(exc))
+            self._status_label.setText("Nie można uruchomić detekcji dłoni.")
+            return
+        self._failed = False
+        self._error_label.clear()
+        self._camera_view.clear()
+        worker = CameraWorker(self._camera_index.value(), provider, parent=self)
+        worker.error.connect(self._on_error)
+        worker.finished.connect(self._on_worker_finished)
+        self._worker = worker
+        self._camera_index.setEnabled(False)
+        self._start_button.setEnabled(False)
+        self._stop_button.setEnabled(True)
+        self._status_label.setText("Uruchamianie kamery i modelu dłoni…")
+        self._timer.start()
+        worker.start()
+
+    def _stop_analysis(self) -> None:
+        if self._worker is not None:
+            self._stop_button.setEnabled(False)
+            self._status_label.setText("Zatrzymywanie…")
+            self._worker.stop()
+
+    def _refresh_preview(self) -> None:
+        if self._worker is None:
+            return
+        packet = self._worker.take_latest_preview()
+        if packet is None:
+            return
+        frame, result = packet
+        self._camera_view.set_frame(frame, result.hands)
+        if self._failed:
+            return
+        if not result.hands:
+            self._status_label.setText("Brak dłoni — pokaż dłoń do kamery.")
+        elif any(
+            p.x < 0 or p.x > 1 or p.y < 0 or p.y > 1
+            for hand in result.hands
+            for p in hand.landmarks
+        ):
+            self._status_label.setText("Dłoń częściowo poza kadrem.")
+        else:
+            self._status_label.setText(f"Śledzenie dłoni: {len(result.hands)}")
+
+    def _on_error(self, message: str) -> None:
+        self._failed = True
+        self._status_label.setText("Błąd kamery lub detekcji dłoni.")
+        self._error_label.setText(message)
+        if self._worker is not None:
+            self._worker.stop()
+
+    def _on_worker_finished(self) -> None:
+        self._timer.stop()
+        worker = self._worker
+        self._worker = None
+        if worker is not None:
+            worker.deleteLater()
+        self._start_button.setEnabled(True)
+        self._stop_button.setEnabled(False)
+        self._camera_index.setEnabled(True)
+        self._camera_view.clear()
+        if not self._failed:
+            self._status_label.setText("Kamera zatrzymana.")
+        if self._closing:
+            QTimer.singleShot(0, self.close)
+
+    def closeEvent(self, event) -> None:
+        if self._worker is not None:
+            self._closing = True
+            self._stop_analysis()
+            event.ignore()
+            return
+        super().closeEvent(event)
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\ui\theme.py ==========
+from src.gesture_assistant.domain.enums import QualityStatus
+
+MAIN_WINDOW_TITLE = "GestureAssistant"
+
+STATUS_TEXTS = {
+    QualityStatus.VALID: "Śledzenie",
+    QualityStatus.NO_PERSON: "Brak osoby",
+    QualityStatus.LOW_VISIBILITY: "Słaba widoczność",
+    QualityStatus.OUT_OF_FRAME: "Osoba poza kadrze",
+    QualityStatus.MULTIPLE_PEOPLE: "Wiele osób w kadrze",
+    QualityStatus.WRONG_VIEW: "Nieprawidłowy widok",
+    QualityStatus.CAMERA_ERROR: "Błąd kamery",
+}
+
+BACKGROUND_COLOR = "#101418"
+FOREGROUND_COLOR = "#e6edf3"
+ACCENT_COLOR = "#4c8dff"
+ERROR_COLOR = "#ff6b6b"
+
+NO_PREVIEW_TEXT = "Brak podglądu"
+MISSING_MODEL_TEXT = "Brak modelu MediaPipe.\nPobierz model zgodnie z instrukcją w README."
+
+
+def get_stylesheet() -> str:
+    return f"""
+    QMainWindow {{
+        background-color: {BACKGROUND_COLOR};
+        color: {FOREGROUND_COLOR};
+    }}
+
+    QLabel {{
+        color: {FOREGROUND_COLOR};
+    }}
+
+    QPushButton {{
+        background-color: {ACCENT_COLOR};
+        color: #ffffff;
+        border: none;
+        border-radius: 6px;
+        padding: 8px 16px;
+    }}
+
+    QPushButton:disabled {{
+        background-color: #3b4451;
+        color: #9aa4b1;
+    }}
+
+    QComboBox, QSpinBox, QLineEdit {{
+        background-color: #1b2129;
+        color: {FOREGROUND_COLOR};
+        border: 1px solid #3b4451;
+        border-radius: 4px;
+        padding: 6px;
+    }}
+    """
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\utils\__init__.py ==========
+"""Narzędzia pomocnicze GestureAssistant."""
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\utils\time_utils.py ==========
+import time
+
+
+def monotonic_ms() -> int:
+    """Zwraca monotoniczny znacznik czasu w milisekundach."""
+
+    return time.perf_counter_ns() // 1_000_000
+
+
+def format_duration_ms(duration_ms: int) -> str:
+    seconds = duration_ms // 1000
+    minutes, seconds = divmod(seconds, 60)
+    hours, minutes = divmod(minutes, 60)
+    return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\vision\__init__.py ==========
+"""Przechwytywanie obrazu, MediaPipe i ocena jakości detekcji."""
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\vision\camera_worker.py ==========
+import logging
+import queue
+import threading
+
+import cv2
+from PySide6.QtCore import QThread, Signal
+
+from src.gesture_assistant.utils.time_utils import monotonic_ms
+from src.gesture_assistant.vision.hand_provider import HandProvider
+
+logger = logging.getLogger(__name__)
+
+
+class CameraWorker(QThread):
+    """Odczyt źródła i analiza z buforem najnowszej klatki."""
+
+    frame_ready = Signal(object, object)
+    result_ready = Signal(object)
+    error = Signal(str)
+    stopped = Signal()
+
+    def __init__(
+        self,
+        source: int,
+        provider: HandProvider,
+        capture_factory=cv2.VideoCapture,
+        parent=None,
+    ) -> None:
+        super().__init__(parent)
+
+        if type(source) is not int or source < 0:
+            raise ValueError("Źródłem musi być nieujemny numer kamery, nie plik wideo.")
+        self._source = source
+        self._provider = provider
+        self._capture_factory = capture_factory
+
+        self._stop_event = threading.Event()
+        self._capture_finished = threading.Event()
+        self._latest_frame = queue.Queue(maxsize=1)
+        self._preview_lock = threading.Lock()
+        self._preview = None
+
+    def run(self) -> None:
+        capture_thread = threading.Thread(
+            target=self._capture_loop,
+            name="GestureAssistantCapture",
+            daemon=False,
+        )
+
+        try:
+            capture_thread.start()
+
+            while not self._stop_event.is_set():
+                try:
+                    frame, timestamp_ms = self._latest_frame.get(timeout=0.1)
+                except queue.Empty:
+                    if self._capture_finished.is_set():
+                        # Producent już nie doda kolejnych klatek.
+                        # Sprawdzamy kolejkę ponownie, aby nie pominąć
+                        # ostatniej klatki dodanej tuż przed końcem odczytu.
+                        try:
+                            frame, timestamp_ms = self._latest_frame.get_nowait()
+                        except queue.Empty:
+                            break
+                    else:
+                        continue
+
+                try:
+                    result = self._provider.process(frame, timestamp_ms)
+                except Exception as exc:
+                    logger.exception("Błąd podczas analizy klatki.")
+                    self.error.emit(f"Błąd analizy klatki: {exc}")
+                    break
+
+                with self._preview_lock:
+                    self._preview = (frame, result)
+                self.frame_ready.emit(frame, timestamp_ms)
+                self.result_ready.emit(result)
+
+        except Exception as exc:
+            logger.exception("Błąd uruchomienia lub pracy workera.")
+            self.error.emit(f"Błąd workera: {exc}")
+
+        finally:
+            self._stop_event.set()
+
+            if capture_thread.ident is not None:
+                # Nie zgłaszamy zakończenia, dopóki wątek odczytu
+                # faktycznie nie zwolni źródła i nie zakończy pracy.
+                capture_thread.join()
+
+            try:
+                close = getattr(self._provider, "close", None)
+                if callable(close):
+                    close()
+            except Exception as exc:
+                logger.exception("Błąd zamykania modelu.")
+                self.error.emit(f"Błąd zamykania modelu: {exc}")
+            finally:
+                self.stopped.emit()
+
+    def stop(self) -> None:
+        """Zleca zatrzymanie bez blokowania głównego wątku GUI."""
+        self._stop_event.set()
+
+    def _capture_loop(self) -> None:
+        capture = None
+        last_timestamp_ms = -1
+
+        try:
+            capture = self._capture_factory(self._source)
+
+            if not capture.isOpened():
+                message = f"Nie można otworzyć kamery o numerze {self._source}."
+
+                logger.error(message)
+                self.error.emit(message)
+                return
+
+            while not self._stop_event.is_set():
+                opened, frame = capture.read()
+
+                if not opened:
+                    if not self._stop_event.is_set():
+                        self.error.emit("Nie można odczytać kolejnej klatki z kamery.")
+                    break
+
+                if self._stop_event.is_set():
+                    break
+
+                if frame is None:
+                    self.error.emit("Kamera zwróciło pustą klatkę.")
+                    break
+
+                timestamp_ms = max(
+                    monotonic_ms(),
+                    last_timestamp_ms + 1,
+                )
+                last_timestamp_ms = timestamp_ms
+
+                self._publish_latest_frame(frame, timestamp_ms)
+
+        except Exception as exc:
+            logger.exception("Błąd odczytu kamery.")
+            self.error.emit(f"Błąd kamery: {exc}")
+
+        finally:
+            try:
+                if capture is not None:
+                    capture.release()
+            except Exception as exc:
+                logger.exception("Błąd zwalniania kamery.")
+                self.error.emit(f"Błąd zwalniania kamery: {exc}")
+            finally:
+                self._capture_finished.set()
+
+    def _publish_latest_frame(self, frame, timestamp_ms: int) -> None:
+        """Zastępuje oczekującą klatkę nowszą, jeśli bufor jest pełny."""
+        item = (frame, timestamp_ms)
+
+        try:
+            self._latest_frame.put_nowait(item)
+            return
+        except queue.Full:
+            # Pełna kolejka oznacza, że można odrzucić starszą klatkę.
+            logger.debug("Odrzucanie starszej klatki z bufora.")
+
+        try:
+            self._latest_frame.get_nowait()
+        except queue.Empty:
+            # Konsument mógł już pobrać starszą klatkę.
+            logger.debug("Starsza klatka została już pobrana.")
+
+        # Tylko ten wątek jest producentem. Po usunięciu elementu
+        # lub pobraniu go przez konsumenta jest miejsce w kolejce.
+        self._latest_frame.put_nowait(item)
+
+    def take_latest_preview(self):
+        """GUI odbiera najwyżej jeden aktualny pakiet, bez kolejki sygnałów obrazu."""
+        with self._preview_lock:
+            preview = self._preview
+            self._preview = None
+            return preview
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\vision\hand_provider.py ==========
+"""Detekcja dłoni bez wymagania widoczności sylwetki."""
+
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Protocol
+
+import numpy as np
+
+
+@dataclass(frozen=True)
+class HandPoint:
+    x: float
+    y: float
+    z: float
+
+
+@dataclass(frozen=True)
+class Hand:
+    landmarks: tuple[HandPoint, ...]
+    world_landmarks: tuple[HandPoint, ...]
+    handedness: str | None
+    handedness_score: float | None
+
+
+@dataclass(frozen=True)
+class HandResult:
+    frame_id: int
+    timestamp_ms: int
+    hands: tuple[Hand, ...]
+
+
+def validate_input(frame: np.ndarray, timestamp_ms: int) -> None:
+    if (
+        not isinstance(frame, np.ndarray)
+        or frame.dtype != np.uint8
+        or frame.ndim != 3
+        or frame.shape[2] != 3
+        or frame.shape[0] == 0
+        or frame.shape[1] == 0
+    ):
+        raise ValueError("Oczekiwano niepustego obrazu BGR uint8 z trzema kanałami.")
+    if type(timestamp_ms) is not int or timestamp_ms < 0:
+        raise ValueError("Timestamp musi być nieujemną liczbą całkowitą.")
+
+
+class HandProvider(Protocol):
+    def process(self, frame_bgr: np.ndarray, timestamp_ms: int) -> HandResult:
+        """Zwraca wykryte dłonie."""
+
+
+class MediaPipeHandProvider:
+    """Model tworzony leniwie w wątku analizy, nie w GUI."""
+
+    def __init__(self, model_path: Path) -> None:
+        self._path = Path(model_path)
+        if not self._path.is_file():
+            raise FileNotFoundError(
+                "Brak modelu dłoni MediaPipe.\nUruchom: python scripts/download_model.py"
+            )
+        self._landmarker = None
+        self._last_timestamp = -1
+        self._frame_id = 0
+        self._closed = False
+
+    def process(self, frame_bgr: np.ndarray, timestamp_ms: int) -> HandResult:
+        validate_input(frame_bgr, timestamp_ms)
+        if self._closed:
+            raise RuntimeError("Provider został zamknięty.")
+        if timestamp_ms <= self._last_timestamp:
+            raise ValueError("Timestampy muszą być ściśle rosnące.")
+
+        import cv2
+        import mediapipe as mp
+        from mediapipe.tasks import python
+        from mediapipe.tasks.python import vision
+
+        if self._landmarker is None:
+            options = vision.HandLandmarkerOptions(
+                base_options=python.BaseOptions(model_asset_path=str(self._path)),
+                running_mode=vision.RunningMode.VIDEO,
+                num_hands=2,
+            )
+            self._landmarker = vision.HandLandmarker.create_from_options(options)
+
+        rgb = np.ascontiguousarray(cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2RGB))
+        image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb)
+        detection = self._landmarker.detect_for_video(image, timestamp_ms)
+        hands = []
+        for index, points in enumerate(detection.hand_landmarks):
+            categories = detection.handedness[index]
+            category = categories[0] if categories else None
+            world = detection.hand_world_landmarks[index]
+            hands.append(
+                Hand(
+                    landmarks=tuple(HandPoint(p.x, p.y, p.z) for p in points),
+                    world_landmarks=tuple(HandPoint(p.x, p.y, p.z) for p in world),
+                    handedness=category.category_name if category else None,
+                    handedness_score=category.score if category else None,
+                )
+            )
+        self._last_timestamp = timestamp_ms
+        self._frame_id += 1
+        return HandResult(self._frame_id, timestamp_ms, tuple(hands))
+
+    def close(self) -> None:
+        if not self._closed:
+            self._closed = True
+            if self._landmarker is not None:
+                self._landmarker.close()
+                self._landmarker = None
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\vision\pose_engine.py ==========
+from pathlib import Path
+
+from src.gesture_assistant.vision.pose_provider import MediaPipePoseProvider, PoseProvider
+
+
+class ModelNotFoundError(FileNotFoundError):
+    """Występuje, gdy plik modelu MediaPipe nie istnieje."""
+
+
+class PoseEngine:
+    """Fasada analizy sylwetki; korzysta z wybranego PoseProvider."""
+
+    def __init__(self, provider: PoseProvider | None) -> None:
+        self._provider = provider
+
+    @classmethod
+    def create(cls, model_path: Path) -> "PoseEngine":
+        if not model_path.is_file():
+            return cls(provider=None)
+
+        return cls(provider=MediaPipePoseProvider(str(model_path)))
+
+    @property
+    def has_model(self) -> bool:
+        return self._provider is not None
+
+    def process(self, frame_bgr, timestamp_ms: int):
+        if self._provider is None:
+            raise ModelNotFoundError(
+                "Brak modelu MediaPipe. Pobierz model zgodnie z instrukcją w README."
+            )
+
+        return self._provider.process(frame_bgr, timestamp_ms)
+
+    def close(self) -> None:
+        close = getattr(self._provider, "close", None)
+        if callable(close):
+            close()
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\vision\pose_provider.py ==========
+from typing import Protocol
+
+import numpy as np
+
+from src.gesture_assistant.domain.enums import QualityStatus, TrackingStatus
+from src.gesture_assistant.domain.models import Landmark, PoseFrame, PoseResult
+from src.gesture_assistant.vision.quality import evaluate_quality
+
+
+class PoseProvider(Protocol):
+    def process(self, frame_bgr: np.ndarray, timestamp_ms: int) -> PoseResult:
+        """Analizuje jedną klatkę BGR i zwraca wynik detekcji sylwetki."""
+
+
+class FakePoseProvider:
+    """Atrapa dostawcy wyników wyłącznie do testów i prezentacji interfejsu."""
+
+    def __init__(
+        self,
+        tracking_status: TrackingStatus = TrackingStatus.TRACKING,
+        quality: QualityStatus = QualityStatus.VALID,
+        message: str | None = None,
+        landmarks: list[Landmark] | None = None,
+    ) -> None:
+        self._tracking_status = tracking_status
+        self._quality = quality
+        self._message = message
+        self._landmarks = landmarks
+        self._frame_id = 0
+
+    def process(self, frame_bgr: np.ndarray, timestamp_ms: int) -> PoseResult:
+        if frame_bgr.ndim != 3:
+            raise ValueError("Oczekiwano obrazu BGR o trzech wymiarach.")
+
+        height, width = frame_bgr.shape[:2]
+        self._frame_id += 1
+
+        frame = PoseFrame(
+            frame_id=self._frame_id,
+            timestamp_ms=timestamp_ms,
+            image_width=width,
+            image_height=height,
+            landmarks=self._landmarks,
+            world_landmarks=None,
+            tracking_status=self._tracking_status,
+        )
+
+        return PoseResult(
+            frame=frame,
+            quality=self._quality,
+            message=self._message,
+        )
+
+
+class MediaPipePoseProvider:
+    """Dostawca wyników oparty o MediaPipe Pose Landmarker."""
+
+    def __init__(self, model_path: str) -> None:
+        import cv2
+        import mediapipe as mp
+        from mediapipe.tasks import python as mediapipe_python
+        from mediapipe.tasks.python import vision
+
+        self._cv2 = cv2
+        self._mp = mp
+        base_options = mediapipe_python.BaseOptions(model_asset_path=model_path)
+        options = vision.PoseLandmarkerOptions(
+            base_options=base_options,
+            running_mode=vision.RunningMode.VIDEO,
+            num_poses=1,
+        )
+        self._landmarker = vision.PoseLandmarker.create_from_options(options)
+        self._frame_id = 0
+
+    def process(self, frame_bgr: np.ndarray, timestamp_ms: int) -> PoseResult:
+        rgb = self._cv2.cvtColor(frame_bgr, self._cv2.COLOR_BGR2RGB)
+        image = self._mp.Image(image_format=self._mp.ImageFormat.SRGB, data=rgb)
+        detection = self._landmarker.detect_for_video(image, timestamp_ms)
+        self._frame_id += 1
+
+        landmarks = self._convert_landmarks(detection.pose_landmarks)
+        world_landmarks = self._convert_landmarks(detection.pose_world_landmarks)
+        tracking_status = TrackingStatus.TRACKING if landmarks else TrackingStatus.NO_PERSON
+
+        frame = PoseFrame(
+            frame_id=self._frame_id,
+            timestamp_ms=timestamp_ms,
+            image_width=frame_bgr.shape[1],
+            image_height=frame_bgr.shape[0],
+            landmarks=landmarks,
+            world_landmarks=world_landmarks,
+            tracking_status=tracking_status,
+        )
+
+        quality, message = evaluate_quality(frame)
+        return PoseResult(frame=frame, quality=quality, message=message)
+
+    def close(self) -> None:
+        self._landmarker.close()
+
+    def _convert_landmarks(self, raw_landmarks) -> list[Landmark] | None:
+        if not raw_landmarks:
+            return None
+
+        return [
+            Landmark(
+                x=landmark.x,
+                y=landmark.y,
+                z=landmark.z,
+                visibility=landmark.visibility,
+                presence=getattr(landmark, "presence", None),
+            )
+            for landmark in raw_landmarks[0]
+        ]
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: src\gesture_assistant\vision\quality.py ==========
+from src.gesture_assistant.domain.enums import QualityStatus, TrackingStatus
+from src.gesture_assistant.domain.models import PoseFrame
+
+CORE_LANDMARK_INDICES = (0, 11, 12, 23, 24)
+LOW_VISIBILITY_THRESHOLD = 0.5
+OUT_OF_FRAME_MARGIN = 0.15
+
+
+def evaluate_quality(frame: PoseFrame) -> tuple[QualityStatus, str | None]:
+    """Ocenia widoczną jakość detekcji na podstawie punktów sylwetki."""
+
+    if frame.landmarks is None or frame.tracking_status == TrackingStatus.NO_PERSON:
+        return QualityStatus.NO_PERSON, "Nie wykryto osoby w kadrze."
+
+    landmarks = frame.landmarks
+    core_landmarks = [landmarks[index] for index in CORE_LANDMARK_INDICES if index < len(landmarks)]
+
+    if core_landmarks:
+        average_visibility = sum(landmark.visibility for landmark in core_landmarks) / len(
+            core_landmarks
+        )
+        if average_visibility < LOW_VISIBILITY_THRESHOLD:
+            return QualityStatus.LOW_VISIBILITY, "Słaba widoczność kluczowych punktów sylwetki."
+
+    x_values = [landmark.x for landmark in landmarks]
+    y_values = [landmark.y for landmark in landmarks]
+
+    if min(x_values) < -OUT_OF_FRAME_MARGIN or max(x_values) > 1 + OUT_OF_FRAME_MARGIN:
+        return QualityStatus.OUT_OF_FRAME, "Osoba jest częściowo poza kadrze."
+
+    if min(y_values) < -OUT_OF_FRAME_MARGIN or max(y_values) > 1 + OUT_OF_FRAME_MARGIN:
+        return QualityStatus.OUT_OF_FRAME, "Osoba jest częściowo poza kadrze."
+
+    return QualityStatus.VALID, None
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: tests\__init__.py ==========
+"""Testy jednostkowe GestureAssistant."""
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: tests\conftest.py ==========
+import pytest
+from PySide6.QtCore import QCoreApplication, QEventLoop, QTimer
+
+
+@pytest.fixture(scope="session")
+def qapp():
+    application = QCoreApplication.instance()
+
+    if application is None:
+        application = QCoreApplication([])
+
+    yield application
+
+
+@pytest.fixture
+def wait_for_signal(qapp):
+    def _wait(signal, timeout_ms: int = 5000) -> None:
+        loop = QEventLoop()
+        signal.connect(loop.quit)
+        QTimer.singleShot(timeout_ms, loop.quit)
+        loop.exec()
+
+    return _wait
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: tests\test_app_state.py ==========
+from src.gesture_assistant.app.app_state import AppState
+from src.gesture_assistant.domain.enums import SessionState
+
+
+def test_initial_state_is_idle() -> None:
+    state = AppState()
+
+    assert state.state == SessionState.IDLE
+    assert state.status_message == "Gotowy"
+    assert state.error_message == ""
+
+
+def test_state_change_emits_signal() -> None:
+    state = AppState()
+    changes = []
+    state.state_changed.connect(changes.append)
+
+    state.set_state(SessionState.RUNNING)
+    state.set_state(SessionState.RUNNING)
+
+    assert changes == [SessionState.RUNNING]
+    assert state.state == SessionState.RUNNING
+
+
+def test_status_and_error_signals() -> None:
+    state = AppState()
+    statuses = []
+    errors = []
+
+    state.status_message_changed.connect(statuses.append)
+    state.error_occurred.connect(errors.append)
+
+    state.set_status_message("Śledzenie")
+    state.set_error_message("Błąd kamery")
+
+    assert statuses == ["Śledzenie"]
+    assert errors == ["Błąd kamery"]
+    assert state.status_message == "Śledzenie"
+    assert state.error_message == "Błąd kamery"
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: tests\test_camera_worker.py ==========
+import time
+
+import numpy as np
+import pytest
+
+from src.gesture_assistant.vision.camera_worker import CameraWorker
+from src.gesture_assistant.vision.pose_provider import FakePoseProvider
+
+
+class FakeCapture:
+    def __init__(self, frames, opened=True, read_delay: float = 0.0) -> None:
+        self._frames = list(frames)
+        self._opened = opened
+        self._index = 0
+        self._read_delay = read_delay
+        self.released = False
+
+    def isOpened(self) -> bool:
+        return self._opened
+
+    def read(self):
+        if self._index >= len(self._frames):
+            return False, None
+
+        if self._read_delay > 0:
+            time.sleep(self._read_delay)
+
+        frame = self._frames[self._index]
+        self._index += 1
+        return True, frame
+
+    def release(self) -> None:
+        self.released = True
+
+
+class SlowFakePoseProvider(FakePoseProvider):
+    def __init__(self, processing_delay: float) -> None:
+        super().__init__()
+        self._processing_delay = processing_delay
+
+    def process(self, frame_bgr, timestamp_ms: int):
+        time.sleep(self._processing_delay)
+        return super().process(frame_bgr, timestamp_ms)
+
+
+def make_frame(value: int) -> np.ndarray:
+    frame = np.zeros((240, 320, 3), dtype=np.uint8)
+    frame[:, :, 0] = value
+    return frame
+
+
+def test_worker_processes_frames_and_releases_capture(qapp, wait_for_signal) -> None:
+    frames = [make_frame(value) for value in range(3)]
+    capture = FakeCapture(frames, read_delay=0.02)
+    provider = FakePoseProvider()
+    worker = CameraWorker(
+        source=0,
+        provider=provider,
+        capture_factory=lambda source: capture,
+    )
+
+    received_frames = []
+    received_results = []
+    errors = []
+
+    worker.frame_ready.connect(lambda frame, timestamp: received_frames.append((frame, timestamp)))
+    worker.result_ready.connect(received_results.append)
+    worker.error.connect(errors.append)
+
+    worker.start()
+    wait_for_signal(worker.stopped)
+    assert worker.wait(5000), "Worker nie zakończył pracy w ciągu 5 sekund."
+    qapp.processEvents()
+
+    assert len(received_frames) == 3
+    assert len(received_results) == 3
+    assert errors, "Oczekiwano błędu po końcu źródła klatek."
+    assert capture.released is True
+
+    timestamps = [timestamp for _, timestamp in received_frames]
+    assert timestamps == sorted(timestamps)
+    assert len(set(timestamps)) == len(timestamps)
+
+    processed_values = [int(frame[0, 0, 0]) for frame, _ in received_frames]
+    assert processed_values == [0, 1, 2]
+
+
+def test_worker_reports_camera_open_error(qapp, wait_for_signal) -> None:
+    capture = FakeCapture([], opened=False)
+    worker = CameraWorker(
+        source=0,
+        provider=FakePoseProvider(),
+        capture_factory=lambda source: capture,
+    )
+
+    errors = []
+    worker.error.connect(errors.append)
+
+    worker.start()
+    wait_for_signal(worker.stopped)
+    assert worker.wait(5000), "Worker nie zakończył pracy w ciągu 5 sekund."
+    qapp.processEvents()
+
+    assert len(errors) == 1
+    assert "Nie można otworzyć kamery" in errors[0]
+    assert capture.released is True
+
+
+@pytest.mark.parametrize("source", ["nieistniejacy_plik.mp4", "0", -1, True])
+def test_worker_rejects_non_camera_sources(source) -> None:
+    with pytest.raises(ValueError, match="numer kamery"):
+        CameraWorker(source=source, provider=FakePoseProvider())
+
+
+def test_worker_drops_old_frames_when_analysis_is_slow(qapp, wait_for_signal) -> None:
+    frames = [make_frame(value) for value in range(20)]
+    capture = FakeCapture(frames)
+    provider = SlowFakePoseProvider(processing_delay=0.03)
+    worker = CameraWorker(
+        source=0,
+        provider=provider,
+        capture_factory=lambda source: capture,
+    )
+
+    received_frames = []
+    worker.frame_ready.connect(lambda frame, timestamp: received_frames.append((frame, timestamp)))
+
+    worker.start()
+    wait_for_signal(worker.stopped)
+    assert worker.wait(5000), "Worker nie zakończył pracy w ciągu 5 sekund."
+    qapp.processEvents()
+
+    assert 1 <= len(received_frames) < 20
+    assert capture.released is True
+
+
+def test_worker_stop_releases_capture(qapp, wait_for_signal) -> None:
+    frames = [make_frame(value) for value in range(100)]
+    capture = FakeCapture(frames, read_delay=0.01)
+    worker = CameraWorker(
+        source=0,
+        provider=FakePoseProvider(),
+        capture_factory=lambda source: capture,
+    )
+
+    worker.start()
+    wait_for_signal(worker.frame_ready)
+    worker.stop()
+    assert worker.wait(5000), "Worker nie zakończył pracy w ciągu 5 sekund."
+    qapp.processEvents()
+
+    assert capture.released is True
+    assert not worker.isRunning()
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: tests\test_hand_provider.py ==========
+import numpy as np
+import pytest
+
+from src.gesture_assistant.vision.hand_provider import (
+    Hand,
+    HandPoint,
+    HandResult,
+    MediaPipeHandProvider,
+    validate_input,
+)
+
+
+def test_missing_hand_model(tmp_path):
+    with pytest.raises(FileNotFoundError, match="modelu dłoni"):
+        MediaPipeHandProvider(tmp_path / "missing.task")
+
+
+def test_hand_contract_does_not_require_body():
+    points = tuple(HandPoint(0.5, 0.5, 0.0) for _ in range(21))
+    hand = Hand(points, points, "Left", 0.9)
+    result = HandResult(1, 123, (hand,))
+    assert len(result.hands[0].landmarks) == 21
+    assert result.timestamp_ms == 123
+
+
+@pytest.mark.parametrize(
+    "frame",
+    [
+        np.zeros((0, 2, 3), dtype=np.uint8),
+        np.zeros((2, 2), dtype=np.uint8),
+        np.zeros((2, 2, 4), dtype=np.uint8),
+        np.zeros((2, 2, 3), dtype=np.float32),
+    ],
+)
+def test_reject_invalid_images(frame):
+    with pytest.raises(ValueError):
+        validate_input(frame, 1)
+
+
+def test_valid_input():
+    validate_input(np.zeros((24, 32, 3), dtype=np.uint8), 100)
+
+
+def test_invalid_timestamp():
+    with pytest.raises(ValueError):
+        validate_input(np.zeros((24, 32, 3), dtype=np.uint8), -1)
+
+========== KONIEC PLIKU ==========
+
+========== PLIK: tests\test_pose_provider.py ==========
+import numpy as np
+import pytest
+
+from src.gesture_assistant.domain.enums import QualityStatus, TrackingStatus
+from src.gesture_assistant.domain.models import Landmark, PoseFrame
+from src.gesture_assistant.vision.pose_engine import ModelNotFoundError, PoseEngine
+from src.gesture_assistant.vision.pose_provider import FakePoseProvider
+from src.gesture_assistant.vision.quality import evaluate_quality
+
+
+def test_fake_provider_returns_frame_with_timestamp() -> None:
+    provider = FakePoseProvider()
+    frame = np.zeros((240, 320, 3), dtype=np.uint8)
+
+    result = provider.process(frame, 1234)
+
+    assert result.frame.timestamp_ms == 1234
+    assert result.frame.image_width == 320
+    assert result.frame.image_height == 240
+    assert result.frame.tracking_status == TrackingStatus.TRACKING
+    assert result.quality == QualityStatus.VALID
+
+
+def test_fake_provider_increases_frame_id() -> None:
+    provider = FakePoseProvider()
+    frame = np.zeros((240, 320, 3), dtype=np.uint8)
+
+    first = provider.process(frame, 1)
+    second = provider.process(frame, 2)
+
+    assert second.frame.frame_id == first.frame.frame_id + 1
+
+
+def test_pose_engine_without_model_raises_error(tmp_path) -> None:
+    engine = PoseEngine.create(tmp_path / "missing.task")
+    frame = np.zeros((240, 320, 3), dtype=np.uint8)
+
+    assert engine.has_model is False
+
+    with pytest.raises(ModelNotFoundError):
+        engine.process(frame, 1)
+
+
+def test_quality_no_person() -> None:
+    frame = PoseFrame(
+        frame_id=1,
+        timestamp_ms=1,
+        image_width=320,
+        image_height=240,
+        landmarks=None,
+        world_landmarks=None,
+        tracking_status=TrackingStatus.NO_PERSON,
+    )
+
+    quality, message = evaluate_quality(frame)
+
+    assert quality == QualityStatus.NO_PERSON
+    assert message is not None
+
+
+def test_quality_low_visibility() -> None:
+    landmarks = [Landmark(x=0.5, y=0.5, z=0.0, visibility=0.1) for _ in range(33)]
+    frame = PoseFrame(
+        frame_id=1,
+        timestamp_ms=1,
+        image_width=320,
+        image_height=240,
+        landmarks=landmarks,
+        world_landmarks=None,
+        tracking_status=TrackingStatus.TRACKING,
+    )
+
+    quality, _ = evaluate_quality(frame)
+
+    assert quality == QualityStatus.LOW_VISIBILITY
+
+
+def test_quality_out_of_frame() -> None:
+    landmarks = [Landmark(x=-0.5, y=0.5, z=0.0, visibility=0.9) for _ in range(33)]
+    frame = PoseFrame(
+        frame_id=1,
+        timestamp_ms=1,
+        image_width=320,
+        image_height=240,
+        landmarks=landmarks,
+        world_landmarks=None,
+        tracking_status=TrackingStatus.TRACKING,
+    )
+
+    quality, _ = evaluate_quality(frame)
+
+    assert quality == QualityStatus.OUT_OF_FRAME
+
+========== KONIEC PLIKU ==========
